@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Home </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+             body{
+                background-image:url("background.png");
+                background-repeat:no-repeat;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #link ul{
+                    list-style: none;
+                    background-color:blue;
+                    height:70px;
+                    width:100%;  
+                                    
+               }
+            #link ul li{
+                float: left;
+                width: 150px;
+                line-height: 70px;
+                text-align: center;
+                float: left;
+                color: white;
+                font-size: 20px;                
+            }
+            #link ul li a{
+                text-decoration: none;
+                position: relative;
+                color: white;
+                display:block;
+            }
+            #link ul li a:hover{
+                text-decoration:none;
+                color: blue;
+                background-color: white;
+                border-radius: 8px;
+            } 
+        
+            #images ul{
+                list-style: none;
+            }
+            #images li{
+               float: left; 
+            }
+            #images ul li img{
+                width:500px;
+                height:500px;
+                position: absolute;
+                top: 100px;
+                left: calc(35% - 50px);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="link">
+            <ul>
+                <li><a href="homepage.html">Home</a></li>                             
+                <li><a href="maps.html">Map</a></li>
+                <li><a href="">Restaurant</a></li>
+                <li><a href="">Hospitals</a></li>
+                    
+            </ul>
+        </div>
+        <div id="images">
+            <ul>
+                <li><img alt="hellsgate" src="hells.jpg"></li>
+            </ul>
+        </div>
+    </body>
+</html>

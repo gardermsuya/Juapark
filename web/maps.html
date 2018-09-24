@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+              body{
+                background-image:url("background.png");
+                background-repeat:no-repeat;
+            }
+           *{
+                margin: 0;
+                padding: 0;
+            }
+            #map{
+                height:500px;
+                width:500px;
+                top: 15%;
+                left:30%;
+                position: absolute;
+            }
+            #link ul{
+                    list-style: none;
+                    background-color:blue;
+                    height:70px;
+                    width:100%;  
+                                    
+               }
+            #link ul li{
+                float: left;
+                width: 150px;
+                line-height: 70px;
+                text-align: center;
+                float: left;
+                color: white;
+                font-size: 20px;                
+            }
+            #link ul li a{
+                text-decoration: none;
+                position: relative;
+                color: white;
+                display:block;
+            }
+            #link ul li a:hover{
+                text-decoration:none;
+                color: blue;
+                background-color: white;
+                border-radius: 8px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="link">
+            <ul>
+                <li><a href="homepage.html">Home</a></li>                             
+                <li><a href="maps.html">Map</a></li>
+                <li><a href="">Restaurant</a></li>
+                <li><a href="">Hospitals</a></li>
+                    
+            </ul>
+        </div>
+        <div id="map"></div>
+        
+        <script>
+            function initMap(){
+                var location={lat:49.782810, lng:-121.446840};
+                var map=new google.maps.Map(document.getElementById('map'),{
+                    zoom:15,
+                    center:location
+                });
+                /*
+                var marker = new google.maps.Marker({
+                    position:{lat:49.783571, lng:-121.441377},
+                    map:map
+                });
+                var infoWindow=new google.maps.InfoWinfo({
+                    content:'<h1>masaki Restaurant</h1>'
+                });
+                
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                })*/
+                addMarker({coords:{lat:49.783571, lng:-121.441377}});
+                addMarker({
+                    coords:{lat:49.781534, lng:-121.442528}                  
+                });
+                
+                addMarker({coords:{lat:49.787963,lng:-121.441841}});
+                
+                function addMarker(props){
+                var marker=new google.maps.Marker({
+                    position:props.coords,
+                    map:map,
+                    icon:props.iconImage
+                });
+                
+                if(props.content){
+                    var infoWindow=new google.maps.InfoWinfo({
+                    content:props.content
+                });
+                
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                });
+                }
+              /*                 
+                //array of markers
+                var markers =[
+                 {
+                 coords:{lat:49.782942, lng:-121.446673},
+                 iconImage:url("background.png"),
+                 content:'<h3>makasi Restaurant</h3>'
+             } ,
+             {
+                 coords:{lat:49.783035,lng:-121.446379},
+                 content:'<h3>Hiking trails</h3>'
+             }
+             ];
+             
+             // loop through markers
+             for(var i=0;i<markers.length;i++){
+                 addMrker(markers[i]); // add marker
+             }
+             
+             // add marker function
+            function addMarker(props){
+                var marker=new google.maps.Marker({
+                    position:props.coords,
+                    map:map
+                });
+                
+                //check for custom icon
+                if(props.iconImage){
+                    //set icon image
+                    marker.setIcon(props.iconImage);
+                }
+                
+                //check content
+                if(props.content){
+                    var infoWindow=new google.maps.InfoWindow({
+                        content:'props.content'
+                    });
+                    
+                    marker.addListener('click', function(){
+                        infoWindow.open(map, marker);
+                    });
+                }
+            } */
+            }
+        } 
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlukp3fdh5IC3lbNv-nwLX9f_T5w4idig&&callback=initMap">             
+        </script>
+    </body>
+</html>
